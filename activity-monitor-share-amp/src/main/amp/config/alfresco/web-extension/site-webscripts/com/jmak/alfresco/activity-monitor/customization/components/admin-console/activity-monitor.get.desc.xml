@@ -1,0 +1,8 @@
+<webscript>
+	<shortname>Admin Console IPM Control Panel Tool</shortname>
+	<description>Administration Console - IPM Control Panel Tool</description>
+	<url>/components/console/activity-monitor?username={username}&amp;site={site}</url>
+	<authentication>admin</authentication>
+	<format default="html">any</format>
+	<family>admin-console</family>
+</webscript>

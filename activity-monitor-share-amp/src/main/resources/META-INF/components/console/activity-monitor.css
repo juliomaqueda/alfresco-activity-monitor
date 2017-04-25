@@ -1,0 +1,53 @@
+#activity-monitor-tracer {
+	border: 1px solid #BABABA;
+	border-radius: 10px;
+	margin-top: 20px;
+	padding: 10px 20px 20px;
+}
+
+#activity-tracer {
+	list-style-type: none;
+}
+
+#activity-tracer li {
+	margin: 10px 0 0;
+	padding: 14px;
+}
+
+#activity-tracer li.operation-access {
+	background-color: #EAF2FC;
+	border-left: 5px solid #8892C0;
+}
+
+#activity-tracer li.operation-create {
+	background-color: #EEFCEE;
+	border-left: 5px solid #94C09A;
+}
+
+#activity-tracer li.operation-modify {
+	background-color: #FCF8E5;
+	border-left: 5px solid #D0CEA6;
+}
+
+#activity-tracer li.operation-delete {
+	background-color: #FCEFF2;
+	border-left: 5px solid #D0A4A0;
+}
+
+#activity-tracer li span.activity-date {
+	font-size: 0.85em;
+}
+
+#activity-tracer li span.activity-author a {
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+#activity-tracer li span.activity-node a {
+	font-weight: bold;
+	font-size: 0.9em;
+}
+
+#activity-tracer li span.activity-node-location {
+	font-style: italic;
+}

@@ -1,0 +1,14 @@
+**/.classpath
+**/.project
+**/.settings
+**/.idea
+**/*.iml
+**/.checkstyle
+**/.DS_Store
+**/*.log*
+**/alf_data_dev
+**/solr-config/solr_home
+**/target
+**/dependency-check-data
+**/dependency-check-report.xml
+**/pom.xml.versionsBackup

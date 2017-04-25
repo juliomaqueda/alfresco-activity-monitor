@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>share</artifactId>
+    <name>Alfresco Share WAR Aggregator</name>
+    <packaging>war</packaging>
+    <description>Alfresco Share aggregator, installs your Share AMPs in the Share WAR for aggregation and easy deployment purposes</description>
+
+    <parent>
+        <groupId>com.jmak.alfresco</groupId>
+        <artifactId>alfresco-activity-monitor</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <properties>
+        <alfresco.repo.url>http://localhost:8080/alfresco</alfresco.repo.url>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>${alfresco.groupId}</groupId>
+            <artifactId>${alfresco.share.artifactId}</artifactId>
+            <version>${alfresco.version}</version>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>activity-monitor-share-amp</artifactId>
+            <version>${project.version}</version>
+            <type>amp</type>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>unpack-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <includeTypes>war</includeTypes>
+                            <includeGroupIds>org.alfresco</includeGroupIds>
+                            <includeArtifactIds>share</includeArtifactIds>
+                            <includes>META-INF/MANIFEST.MF</includes>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <configuration>
+                    <!-- Bring in the MANIFEST.MF file from the original share.war, it contains version information
+                         that is needed for it to operate properly -->
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                        <manifestFile>${project.build.directory}/dependency/META-INF/MANIFEST.MF</manifestFile>
+                    </archive>
+
+                    <overlays>
+                        <!-- The Share WAR -->
+                        <overlay>
+                            <groupId>${alfresco.groupId}</groupId>
+                            <artifactId>${alfresco.share.artifactId}</artifactId>
+                            <type>war</type>
+                            <!-- To allow inclusion of META-INF -->
+                            <excludes/>
+                        </overlay>
+                        <overlay>
+                            <groupId>${project.groupId}</groupId>
+                            <artifactId>activity-monitor-share-amp</artifactId>
+                            <type>amp</type>
+                        </overlay>
+                    </overlays>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,7 @@
+<webscript>
+    <shortname>Monitor ticket</shortname>
+    <description>Get a ticket to connect Activity monitor through websocket</description>
+    <url>/activity-monitor/ticket?site={site}&amp;username={username}</url>
+    <authentication>user</authentication>
+    <format default="json"></format>
+</webscript>
