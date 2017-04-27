@@ -16,6 +16,7 @@ import com.jmak.alfresco.activityMonitor.websocket.common.JsonEncoder;
 @Service
 public class MessageProducerServiceImpl implements MessageProducerService {
 
+	//TODO configure the final topic here 
 	private static final String KAKFA_TOPIC = "site-activity-sample";
 
 	private KafkaProducer<String, String> producer;

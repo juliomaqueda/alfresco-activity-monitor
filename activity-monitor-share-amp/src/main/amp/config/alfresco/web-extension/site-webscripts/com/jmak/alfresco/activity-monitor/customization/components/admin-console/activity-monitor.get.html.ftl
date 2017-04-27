@@ -28,8 +28,16 @@
 					<select id="siteList">
 						<option value="sample">Sample</option>
 					</select>
-					<input type="button" id="monitoriseSite" value="Monitorise" />
+					<input type="button" id="${el}-start-monitor" value="Start monitoring" />
+					<input type="button" id="${el}-stop-monitor" value="Stop monitoring" />
+					<input type="button" id="${el}-clear-monitor" value="Clear" />
 				</p>
+			</div>
+			
+			<div id="activity-monitor-buttons" class="row">
+				<input id="${el}-creations-view" class="create" type="checkbox" name="1" value="1" checked /> 
+				<input id="${el}-updates-view" type="checkbox" name="2" value="1" checked /> 
+				<input id="${el}-deletions-view" type="checkbox" name="3" value="1" checked /> 
 			</div>
 
 			<div id="activity-monitor-tracer">

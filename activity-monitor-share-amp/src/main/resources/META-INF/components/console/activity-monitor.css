@@ -1,3 +1,11 @@
+#activity-monitor {
+	padding-top: 10px;
+}
+
+#activity-monitor-buttons {
+	float: right;
+}
+
 #activity-monitor-tracer {
 	border: 1px solid #BABABA;
 	border-radius: 10px;
@@ -14,7 +22,7 @@
 	padding: 14px;
 }
 
-#activity-tracer li.operation-access {
+#activity-tracer li.operation-navigation {
 	background-color: #EAF2FC;
 	border-left: 5px solid #8892C0;
 }
@@ -24,7 +32,7 @@
 	border-left: 5px solid #94C09A;
 }
 
-#activity-tracer li.operation-modify {
+#activity-tracer li.operation-update {
 	background-color: #FCF8E5;
 	border-left: 5px solid #D0CEA6;
 }
@@ -50,4 +58,23 @@
 
 #activity-tracer li span.activity-node-location {
 	font-style: italic;
+}
+
+#activity-tracer li span.activity-node-type {
+	font-style: italic;
+}
+
+#activity-tracer li p.activity-properties {
+	padding: 10px;
+	margin: 10px;
+	border: 1px solid #B2803B;
+	border-radius: 10px
+}
+
+#activity-tracer li p.activity-properties span {
+	display: block;
+}
+
+.hidden {
+	display: none;
 }

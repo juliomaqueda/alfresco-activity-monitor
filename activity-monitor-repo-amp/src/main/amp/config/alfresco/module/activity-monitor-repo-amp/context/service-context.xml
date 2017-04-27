@@ -1,5 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<!DOCTYPE beans PUBLIC '-//SPRING//DTD BEAN//EN' 'http://www.springframework.org/dtd/spring-beans.dtd'>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                           http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
-<beans>
+	<util:constant id="lastThumbnailModification" static-field="org.alfresco.model.ContentModel.PROP_LAST_THUMBNAIL_MODIFICATION_DATA" />
+	<util:constant id="cascadeTx" static-field="org.alfresco.model.ContentModel.PROP_CASCADE_TX" />
+	<util:constant id="cascadeCRC" static-field="org.alfresco.model.ContentModel.PROP_CASCADE_CRC" />
+	<util:constant id="taggable" static-field="org.alfresco.model.ContentModel.PROP_TAGS" />
+	<util:constant id="modified" static-field="org.alfresco.model.ContentModel.PROP_MODIFIED" />
+
+	<util:list id="nonCheckedProperties" value-type="org.alfresco.service.namespace.QName">
+		<ref bean="lastThumbnailModification" />
+		<ref bean="cascadeTx" />
+		<ref bean="cascadeCRC" />
+		<ref bean="taggable" />
+		<ref bean="modified" />
+	</util:list>
+
 </beans>
